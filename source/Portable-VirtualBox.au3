@@ -734,7 +734,7 @@ EndIf
         If FileExists (@ScriptDir&"\data\.VirtualBox") Then
           Local $UserHome = IniRead ($var1, "userhome", "key", "NotFound")
           Local $StartVM  = $CmdLine[1]
-          If IniRead ($var1, "userhome", "key", "NotFound") = "%CD%\data\.VirtualBox" AND FileExists (@ScriptDir&"\data\.VirtualBox\HardDisks\"&$CmdLine[1]&".vdi") Then
+          If IniRead ($var1, "userhome", "key", "NotFound") = "%CD%\data\.VirtualBox" Then
             RunWait ("cmd /c set VBOX_USER_HOME="& $UserHome &"& .\"& $arch &"\VBoxManage.exe startvm """& $StartVM &"""" , @ScriptDir, @SW_HIDE)
           Else
             RunWait ("cmd /c set VBOX_USER_HOME="& $UserHome &"& .\"& $arch &"\VirtualBox.exe", @ScriptDir, @SW_HIDE)
